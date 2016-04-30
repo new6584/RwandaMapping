@@ -1,36 +1,57 @@
-html,body,#map, #data  { 
+html,body,#left, #data  { 
+	min-height:850px;
     height:99.9%;
     margin: 0 0;
 }
-
-.container {
-    width:  100%;
-    border: solid 1px #f00;
-	height: 100%;
-	min-width: 950px;
-	min-height: 500px;
-    max-height:100%; 
-
+#pie{
+max-width:100%;
+max-height:100%;
+}
+h1{
+	margin: 0;
+	padding: .1em;
+}
+body{
+    background-image: url("../img/backgroundIMG.png");
+    background-repeat: repeat;
 }
 
-#map, #data {
+.container {
+	width: 85%;
+	min-width: 950px;
+	height: 100%;
+	min-height: 500px;
+    max-height:100%; 
+	margin: 0 auto;
+}
+#left{
+width: 50%;
+}
+#left, #data {
     float: left;
 }
 
 #map {
-    width: 70%;
-    min-height:100%;
+    height:100%;
+}
+
+#dataTable{
+	height: 30%;
+	overflow:auto;
 }
 
 #data {
-    width: 30%;
+    width: 50%;
     margin:0;
     height:100%;    
+	background-color: white;
+    opacity: 0.85;
+    filter: alpha(opacity=85); /* For IE8 and earlier */		
 }
 #fields{
 	height: 10%;
-    margin-left:3%;
-    margin:0;
+	margin: 0 auto;
+	width: 90%;
 }
 #layerSelect{
     width: 60%;
@@ -46,15 +67,51 @@ html,body,#map, #data  {
     margin-left:0;
 }
 #dataDump{
-	height: 60%;
-    margin:0;
+	margin: 0 auto;
+	width: 90%;
+	height: 50%;
 }
 #attachment{
-    height:25%;
-    margin:0;
+	width: 90%;
+	height: 35%;
+    margin:0 auto;
+	background-image: url("../img/sample.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
-#map .esriPopup {  
-    display: none;  
-    visibility: hidden;  
-}  
-/* image carasol */
+#piechart{
+	width: 100%;
+}
+#layerBox{
+	position: absolute; 
+	margin-left: 25px;
+	margin-top: 10px;
+	width: 170px;
+	height: 200px;
+	z-index: 2;
+    outline: 1px solid #111;
+    border-top: 1px solid #555;
+    background: white;
+    opacity: 0.85;
+    filter: alpha(opacity=85); /* For IE8 and earlier */
+}
+#layerBox p{
+	padding-left: 20px;
+}
+#layerBox h3{
+	text-align: center;
+	text-decoration: underline;
+	font-weight: bold;
+}
+.esriSimpleSliderTL {
+    top: 20px;
+    right: 20px; 
+	left: auto !important;
+}
+.clear{
+clear: both;
+}
+#p_business{ color: purple;}
+#p_facility{ color: red;}
+#p_roads{ color: green;}
