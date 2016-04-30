@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+    <script src="jquery.min.js"></script>
+    <script>
+         dojoConfig = {
+        parseOnLoad:true,
+        packages: [{
+          "name": "myModules",
+          "location": location.pathname.replace(/\/[^/]+$/, "") + "/myModules"
+        }]
+      };
+    </script>
+    <script src="https://js.arcgis.com/3.16/"></script>
+    <script src="./presentation.js"></script>
+    <script src="./buisness.js"></script>
+</head>
+<body>
+    <div id="mapDiv"></div>
+    <div>
+        <table id="test">
+
+        </table>
+    </div>
+</body>
+</html>
+
+<!--require(["dojo/_base/connect", "esri/map", ...], function(connect, Map, ...) {
+  var map = new Map("mapDiv"),
+  connect.connect(map, "onClick", myClickHandler);
+  map.addLayer(...);
+  
+  function myClickHandler(evt) {
+    ...
+  }
+});-->

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<title>Kigeme Map</title>
+        
+        <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="./resources/jquery.min.js"></script>
+        <script>
+         dojoConfig = {
+        parseOnLoad:true,
+        packages: [{
+          "name": "myModules",
+          "location": location.pathname.replace(/\/[^/]+$/, "") + "/js/myModules"
+        }]
+      };
+        </script>
+        <script src="https://js.arcgis.com/3.16/"></script>
+        <script src="./js/presentation.js"></script>
+        <script src="./js/buisness.js"></script>
+        
+        
+	</head>
+	<body>
+		<div class = 'container'>
+			<div id = 'map'></div>
+
+			<div id = 'data'>
+				<div id = 'fields'>
+                    <h1>Layer Selection</h1>
+                    <div class="content">
+                        <select id="layerSelect" name="layerSelect">
+                            <option>Example</option>
+                            <option>Another Example</option>
+                        </select>
+                        <input type="button" id="layerOptions" onclick="openLayerOptions()" value="Layer Options"/>
+                    </div>
+                </div>
+
+				<div id = 'dataDump'>
+                    <h1>Field Data</h1>
+                    <div class="content">
+                        <table id="dataFields">
+
+                        </table>
+                    </div>
+                </div>
+
+				<div id = 'attachment'>
+                    
+                </div>
+
+			</div>
+		</div>
+	</body>
+</html>
