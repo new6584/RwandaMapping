@@ -1,2 +1,2 @@
 
-Nicholas Womble Aurko Mallick and Varuun Bhatia 
+Nicholas Womble Aurko Mallick
