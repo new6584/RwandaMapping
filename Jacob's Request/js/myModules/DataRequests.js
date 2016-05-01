@@ -150,7 +150,7 @@ function (//callbacks for those 'import statments' above
          * returns false if  name does not exist in layerNameAndID does not change primary layer
          */
         setPrimaryLayer: function (layerName) {
-            if( exists(layerName) ){
+            if( this.exists(layerName) ){
                 this.primaryLayer = layerName;
                 return true;
             }

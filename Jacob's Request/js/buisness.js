@@ -32,9 +32,12 @@ require([
     getMe.on('dataError', function (error) { console.log(error); });
     getMe.on('dataFail', function (error) { console.log(error); });//probably dont care when this is called, nonfatal errors like misclicking where there is no data
 
-
+    /*
+     * init functions go here 
+     */
     function startApp() {
-        updateLayers();
+        clearDataFields();
+        updateLayers();        
     }
     /*
      * newData is expected to be json with elements: .features and .fields
@@ -69,15 +72,16 @@ require([
         calls whatever functions we'd need for that
     */
     function updateAttachments(urls) {//this gets an array of image srcs
+        clearAttachments();
         for (var i = 0; i < urls.length; i++) {
-            //send urlHREF to ui function ( urls[i] ); TODO
+            receiveAttachment(urls[i]);
         }
     }
     /*
         gets checks and sends layer names to ui
     */
     function updateLayers() {
-        var regex = "_";//remove _ and \
+        var regex = "_";
         var names = getMe.theLayerNames();
         clearLayerSelect();
         for (var i = 0; i < names.length; i++) {
@@ -86,6 +90,7 @@ require([
             displayName = displayName.toUpperCase();
             newLayerOption(value, displayName );
         }
+        //if legend add here
     }
 
 });//end require
