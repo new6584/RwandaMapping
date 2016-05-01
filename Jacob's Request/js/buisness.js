@@ -45,6 +45,7 @@ require([
      * if multiple points clicked, only the topmost point will be used ( at index 0 )
      */
     function updateDataSet(newData) {
+        clearFilterSelect();
         var fieldNames = [];
         for (var i = 0; i < newData.fields.length; i++) {
             var current = newData.fields[i];
@@ -93,4 +94,20 @@ require([
         //if legend add here
     }
 
+
+
+
 });//end require
+
+function layerChange() {
+    //validate selection
+    var selected = getSelectedPrimaryLayer();
+    if (!selected || selected == getMe.primaryLayer) {
+        return;
+    }
+    //setup new focus layer
+    clearDataFields();
+    if (!getMe.setPrimaryLayer(selected)) {
+        alert('Selected Layer Does Not Exist');
+    }
+}

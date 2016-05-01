@@ -196,7 +196,7 @@ function (//callbacks for those 'import statments' above
          */
         exists: function(checkFor){
             for (var i = 0; i < this.layerNameAndID.length; i++) {
-                if(this.layerNameAndID.name == checkFor){
+                if(this.layerNameAndID[i].name == checkFor){
                     return true;
                 }
             }

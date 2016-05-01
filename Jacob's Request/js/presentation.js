@@ -57,7 +57,12 @@ function makeAttachment(url) {
 function newLayerOption(value, displayName) {
     $("#layerSelect").append(makeOption(displayName,value));
 }
-
+/*
+ * returns currently selected primary layer
+ */
+function getSelectedPrimaryLayer() {
+    return $("#layerSelect").val();
+}
 
 
 
@@ -74,7 +79,6 @@ function clearFilterSelect() {
     $("#filterSelect").empty();
 }
 function clearDataFields() {
-    clearLayerSelect();
     clearFilterSelect();
     newFilterOptions("Select A Filter");// a default filter 
 }
