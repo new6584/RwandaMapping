@@ -1,4 +1,9 @@
-google.charts.load('current', {'packages':['corechart']});
+/*
+    load in graph api
+    functions to interact with graph api
+*/
+
+google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart(dataTable) {

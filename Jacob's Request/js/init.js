@@ -1,4 +1,10 @@
-function initializePage(){
+/*rename to something more descriptive, like initDOMElements
+    
+    functionality:
+        starting state of DOM?
+        and that only?
+*/
+function initializePage() {
 var dataTable = [
       ["Quarter", "Population "],
       ["Quarter 1", 117],
