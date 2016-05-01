@@ -34,7 +34,7 @@ require([
 
 
     function startApp() {
-        //first calls, default dataset? 
+        updateLayers();
     }
     /*
      * newData is expected to be json with elements: .features and .fields
@@ -42,7 +42,6 @@ require([
      * if multiple points clicked, only the topmost point will be used ( at index 0 )
      */
     function updateDataSet(newData) {
-        clearDataTable();
         var fieldNames = [];
         for (var i = 0; i < newData.fields.length; i++) {
             var current = newData.fields[i];
@@ -59,13 +58,11 @@ require([
             fieldNames.push(current.name);            
         }
         //send to UI
+        clearDataTable();
         var current = newData.features[0].attributes;
-        receiveData(fieldNames, current[fieldNames]);
-
-
-        /*for (var namesIndex = 0; namesIndex < fieldNames.length; namesIndex++) {
+        for (var namesIndex = 0; namesIndex < fieldNames.length; namesIndex++) {
             receiveData(fieldNames[namesIndex], current[fieldNames[namesIndex]]);
-        }*/
+        }
     }
     /*
         sends href of images to UI
@@ -79,15 +76,16 @@ require([
     /*
         gets checks and sends layer names to ui
     */
-    function pullLayerNames() {
-        var regex = "/\_|\\/g";//remove _ and \
+    function updateLayers() {
+        var regex = "_";//remove _ and \
         var names = getMe.theLayerNames();
-        //clear legend?
+        clearLayerSelect();
         for (var i = 0; i < names.length; i++) {
-            //order here is important 
-            //send to update layer options method (names[i], names[i].replace(regex, ' ') );
+            var value = names[i];
+            var displayName = names[i].replace(regex, ' ');
+            displayName = displayName.toUpperCase();
+            newLayerOption(value, displayName );
         }
-
     }
 
 });//end require
