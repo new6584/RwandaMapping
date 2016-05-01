@@ -9,7 +9,6 @@
 
 
 /*
- * expects parellel array of names and values 
  * wrapper for when new data is being sent to the UI
  */
 function receiveData(name, value) {
