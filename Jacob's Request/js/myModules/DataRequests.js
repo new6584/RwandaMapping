@@ -41,6 +41,8 @@ define([//think of this as a java import statment
     "esri/tasks/query",
     "esri/geometry/Point",
     "esri/layers/FeatureLayer",
+    "esri/dijit/LayerList",
+    "esri/arcgis/utils",
     "dojo/domReady!"//no callback 
 ],
 function (//callbacks for those 'import statments' above
@@ -51,7 +53,9 @@ function (//callbacks for those 'import statments' above
     QueryTask,
     Query,
     Point,
-    FeatureLayer
+    FeatureLayer,
+    LayerList,
+    arcgisUtils
 
 ) {
     return declare([Evented], {//make a class that 'extends' evented
@@ -90,11 +94,17 @@ function (//callbacks for those 'import statments' above
                     self.myMap.addLayer(new esri.layers.ArcGISTiledMapServiceLayer(myTiles));
                     // sets a default primary layer, important that happens before letting user click or hiding layers
                     self.psetLayerNameToID();
+                    //legend
+                    var layerListWidget = new LayerList({
+                        map: response.map,
+                        layers: arcgisUtils.getLayerList(response)
+                    }, "layerBox");//TODO decouple
+                    layerListWidget.startup();
                     //when the mapDiv is clicked, users can now interact through clicks
                     self.myMap.on('click', function (evt) {
                         self.pclickHandler(evt);
                 });
-                
+                    
                 //send event isReady with no callback
                 self.emit("isReady", {});
             });
