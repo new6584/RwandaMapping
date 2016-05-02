@@ -14,7 +14,7 @@ var esriTileURI = "https://tiles.arcgis.com/tiles/RQcpPaCpMAXzUI5g/arcgis/rest/s
 var domMapID = "map";
 
 var getMe;
-
+var dataTables = [];
 require([
     "myModules/DataRequests",
     "dojo/on",
@@ -58,6 +58,7 @@ function updateDataSet(newData) {
     }
     //send to UI
     clearDataTable();
+    addTableHeader();
     var current = newData.features[0].attributes;
     for (var namesIndex = 0; namesIndex < fieldNames.length; namesIndex++) {
         receiveData(fieldNames[namesIndex], current[fieldNames[namesIndex]]);

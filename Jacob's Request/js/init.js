@@ -1,4 +1,4 @@
-/*rename to something     
+/*rename to something?
 
 */
 function initializePage() {
@@ -13,7 +13,6 @@ function initializePage() {
       ["Quarter 6", 339],
       ["Quarter 7", 1045]
     ];
-    //initTable();
     drawChart(dataTable);
     clearDataFields();
     
@@ -38,23 +37,4 @@ function initTable() {
 		table.appendChild(tr);
 	}
 	document.getElementById('dataTable').appendChild(table);
-}
-
-function initDesc() {
-	var pTag;
-	// fields to display
-	var fields= [];
-	fields["fBusiness"] = "Business Type: ";
-	fields["fCash"] = "Cash Amount: ";
-	fields["fYear"] = "Years in Operation: ";	
-
-	for(var index in fields) {
-		if(!fields.hasOwnProperty(index)){
-			continue;
-		}
-		pTag = document.createElement("p");
-		pTag.setAttribute("id", index);
-		pTag.appendChild(document.createTextNode(fields[index]));
-		document.getElementById("singleOutput").appendChild(pTag);
-	}
 }

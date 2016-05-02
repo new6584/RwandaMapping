@@ -19,11 +19,14 @@ function receiveData(name, value) {
 }
 /*
  * adds a single name value pair to the data table
- * TODO
  */
 function addDataElement(name,value) {
     var format = $("<tr><td>" + name + "</td>" + "<td>" + value + "</td></tr>");
     $("#dataTable").append(format);
+}
+function addTableHeader() {
+    var header = $("<tr><th>Field Name</th><th>Value</th></tr>");
+    $("#dataTable").append(header);
 }
 /*
  * replaces filter by selector with options
