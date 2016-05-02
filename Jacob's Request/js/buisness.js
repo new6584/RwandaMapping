@@ -40,13 +40,12 @@ require([
  * if multiple points clicked, only the topmost point will be used ( at index 0 )
  */
 function updateDataSet(newData) {
-    clearFilterSelect();
     var fieldNames = [];
     for (var i = 0; i < newData.fields.length; i++) {
         var current = newData.fields[i];
+        var currentFeature = newData.features[0].attributes;
         if (current.domain) {
             //replace in all
-            var currentFeature = newData.features[0].attributes;
             var codeValue = currentFeature[current.name];
             if (codeValue) {
                 var toReplace = current.domain.codedValues[codeValue - 1].name;
@@ -54,25 +53,17 @@ function updateDataSet(newData) {
             }
 
         }//domain check
-        fieldNames.push(current.name);
+        fieldNames.push([current.name, currentFeature[current.name]]);
     }
     //send to UI
-    clearDataTable();
-    addTableHeader();
-    var current = newData.features[0].attributes;
-    for (var namesIndex = 0; namesIndex < fieldNames.length; namesIndex++) {
-        receiveData(fieldNames[namesIndex], current[fieldNames[namesIndex]]);
-    }
+    receiveData(fieldNames);
 }
 /*
     sends href of images to UI
     calls whatever functions we'd need for that
 */
 function updateAttachments(urls) {//this gets an array of image srcs
-    clearAttachments();
-    for (var i = 0; i < urls.length; i++) {
-        receiveAttachment(urls[i]);
-    }
+    receiveAttachment(urls);
 }
 /*
     gets checks and sends layer names to ui
@@ -84,12 +75,14 @@ function updateLayers() {
         return;
     }
     clearLayerSelect();
+    var layerOptions = [];
     for (var i = 0; i < names.length; i++) {
         var value = names[i];
         var displayName = names[i].replace(regex, ' ');
         displayName = displayName.toUpperCase();
-        newLayerOption(value, displayName);
+        layerOptions.push([displayName,value]);
     }
+    receiveLayerOptions(layerOptions);
     //if legend add here
 }
 

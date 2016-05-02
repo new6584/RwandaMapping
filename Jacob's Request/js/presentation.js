@@ -11,11 +11,22 @@
 /*
  * wrapper for when new data is being sent to the UI
  */
-function receiveData(name, value) {
-    addDataElement(name, value);
-    if($.isNumeric(value)){
-        newFilterOptions(name,value);
+function receiveData(dataArray) {
+    if (!dataArray) {
+        return;
     }
+    clearFilterSelect();
+    clearDataTable();
+    addTableHeader();    
+    for (var i = 0; i < dataArray.length; i++) {
+        var name = dataArray[i][0];
+        var value = dataArray[i][1];
+        addDataElement(name, value);
+        if ($.isNumeric(value)) {
+            newFilterOptions(name, value);
+        }
+    }
+    
 }
 /*
  * adds a single name value pair to the data table
@@ -45,19 +56,36 @@ function makeOption(name, value) {
 /*
  * wrapper for when new image urls are being sent to the UI 
  */
-function receiveAttachment(url) {
-    $("attachment").append(makeAttachment(url));
+function receiveAttachment(urls) {
+    clearAttachments();
+    for (var i = 0; i < urls.length; i++) {
+        makeAttachment(urls[i]);
+    }    
 }
 /*
  * makes image tage and returns it
  */
 function makeAttachment(url) {
-    return $("<img src='"+url+"' >");
+    var tag = $("<img src='" + url + "' >");
+    $("attachment").append(tag);
+}
+/*
+ * gets layer options and unpacks them
+ */
+function receiveLayerOptions(layerOptions) {
+    if (!layerOptions) {
+        return;
+    }
+    for (var i = 0; i < layerOptions.length; i++) {
+        var display = layerOptions[i][0];
+        var value = layerOptions[i][1];
+        newLayerOption(display, value);
+    }
 }
 /*
  * adds layer to primary layer select
  */
-function newLayerOption(value, displayName) {
+function newLayerOption(displayName,value) {
     $("#layerSelect").append(makeOption(displayName,value));
 }
 /*
