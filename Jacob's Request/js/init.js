@@ -1,11 +1,9 @@
-/*rename to something more descriptive, like initDOMElements
-    
-    functionality:
-        starting state of DOM?
-        and that only?
+/*rename to something     
+
 */
 function initializePage() {
-var dataTable = [
+    updateLayers();
+    var dataTable = [
       ["Quarter", "Population "],
       ["Quarter 1", 117],
       ["Quarter 2", 137],
@@ -15,9 +13,10 @@ var dataTable = [
       ["Quarter 6", 339],
       ["Quarter 7", 1045]
     ];
-	//initTable();
-	initDesc();
-	drawChart(dataTable);
+    //initTable();
+    drawChart(dataTable);
+    clearDataFields();
+    
 }
 /**
 *

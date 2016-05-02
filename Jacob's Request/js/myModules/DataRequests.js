@@ -114,6 +114,9 @@ function (//callbacks for those 'import statments' above
          * returns them as an array of strings
          */
         theLayerNames: function () {
+            if(!this.layerNameAndID){
+                return null;
+            }
             var layerNames = [];
             for (var i = 0; i < this.layerNameAndID.length; i++) {
                 layerNames.push(this.layerNameAndID[i].name);

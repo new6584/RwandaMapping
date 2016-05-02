@@ -16,11 +16,12 @@
 		};
         </script>
         <script src="https://js.arcgis.com/3.16/"></script>
+        <script src="./js/buisness.js"></script>  
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="./js/presentation.js"></script>
 		<script src="./js/graph.js"></script>
 		<script src="./js/init.js"></script>
-        <script src="./js/buisness.js"></script>   
+         
 	</head>
 	<body onload = "initializePage()">
 		<div class = 'container'>
@@ -58,7 +59,11 @@
 				<div id = 'dataDump'>
                     <h1>Analytics</h1>
                     <div id="piechart"></div>
-					<div id="singleOutput"></div>
+					<div id="singleOutput">
+                        <table id="dataTable">
+
+                        </table>
+                    </div>
                 </div>
 
 				<div id = 'attachment'>

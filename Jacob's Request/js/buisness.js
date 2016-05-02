@@ -26,7 +26,7 @@ require([
     //make map, initialize map functionality
     getMe = new GetMe(esriMapId, esriTileURI, domMapID);
     //possible events to listen for
-    getMe.on('isReady', function () { startApp(); });
+    getMe.on('isReady', function () { initializePage(); }); //init.js
     getMe.on('dataRetrieval', function (data) { updateDataSet(data); });
     getMe.on('newAttachments', function (urls) { updateAttachments(urls); });
     getMe.on('dataError', function (error) { console.log(error); });
@@ -34,13 +34,6 @@ require([
 
 });//end require
 
-/*
- * init functions go here 
- */
-function startApp() {
-    clearDataFields();
-    updateLayers();
-}
 /*
  * newData is expected to be json with elements: .features and .fields
  * replaces codded values with their value and sends to UI methods
@@ -86,6 +79,9 @@ function updateAttachments(urls) {//this gets an array of image srcs
 function updateLayers() {
     var regex = "_";
     var names = getMe.theLayerNames();
+    if (!names) {
+        return;
+    }
     clearLayerSelect();
     for (var i = 0; i < names.length; i++) {
         var value = names[i];

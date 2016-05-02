@@ -14,7 +14,7 @@
 function receiveData(name, value) {
     addDataElement(name, value);
     if($.isNumeric(value)){
-        newFilterOptions(name);
+        newFilterOptions(name,value);
     }
 }
 /*
@@ -22,15 +22,15 @@ function receiveData(name, value) {
  * TODO
  */
 function addDataElement(name,value) {
-    var format = $("<p>" + name + "</p>" + "<p>" + value + "</p>");
-    $("#singleOutput").append(format);
+    var format = $("<tr><td>" + name + "</td>" + "<td>" + value + "</td></tr>");
+    $("#dataTable").append(format);
 }
 /*
  * replaces filter by selector with options
  * TODO
  */
-function newFilterOptions(options) {
-    $("#filterSelect").append(makeOption(options, options));
+function newFilterOptions(name,value) {
+    $("#filterSelect").append(makeOption(name, value));
 }
 /*
  * makes an option tag and returns it
@@ -70,7 +70,7 @@ function clearAttachments() {
     $("#attachment").empty();
 }
 function clearDataTable() {
-    $("#singleOutput").empty();
+    $("#dataTable").empty();
 }
 function clearLayerSelect() {
     $("#layerSelect").empty();
