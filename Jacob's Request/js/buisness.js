@@ -32,72 +32,69 @@ require([
     getMe.on('dataError', function (error) { console.log(error); });
     getMe.on('dataFail', function (error) { console.log(error); });//probably dont care when this is called, nonfatal errors like misclicking where there is no data
 
-    /*
-     * init functions go here 
-     */
-    function startApp() {
-        clearDataFields();
-        updateLayers();        
-    }
-    /*
-     * newData is expected to be json with elements: .features and .fields
-     * replaces codded values with their value and sends to UI methods
-     * if multiple points clicked, only the topmost point will be used ( at index 0 )
-     */
-    function updateDataSet(newData) {
-        clearFilterSelect();
-        var fieldNames = [];
-        for (var i = 0; i < newData.fields.length; i++) {
-            var current = newData.fields[i];
-            if (current.domain) {
-                //replace in all
-                var currentFeature = newData.features[0].attributes;
-                var codeValue = currentFeature[current.name];
-                if (codeValue) {
-                    var toReplace = current.domain.codedValues[codeValue - 1].name;
-                    currentFeature[current.name] = toReplace;
-                }
-                    
-            }//domain check
-            fieldNames.push(current.name);            
-        }
-        //send to UI
-        clearDataTable();
-        var current = newData.features[0].attributes;
-        for (var namesIndex = 0; namesIndex < fieldNames.length; namesIndex++) {
-            receiveData(fieldNames[namesIndex], current[fieldNames[namesIndex]]);
-        }
-    }
-    /*
-        sends href of images to UI
-        calls whatever functions we'd need for that
-    */
-    function updateAttachments(urls) {//this gets an array of image srcs
-        clearAttachments();
-        for (var i = 0; i < urls.length; i++) {
-            receiveAttachment(urls[i]);
-        }
-    }
-    /*
-        gets checks and sends layer names to ui
-    */
-    function updateLayers() {
-        var regex = "_";
-        var names = getMe.theLayerNames();
-        clearLayerSelect();
-        for (var i = 0; i < names.length; i++) {
-            var value = names[i];
-            var displayName = names[i].replace(regex, ' ');
-            displayName = displayName.toUpperCase();
-            newLayerOption(value, displayName );
-        }
-        //if legend add here
-    }
-
-
-
-
 });//end require
+
+/*
+ * init functions go here 
+ */
+function startApp() {
+    clearDataFields();
+    updateLayers();
+}
+/*
+ * newData is expected to be json with elements: .features and .fields
+ * replaces codded values with their value and sends to UI methods
+ * if multiple points clicked, only the topmost point will be used ( at index 0 )
+ */
+function updateDataSet(newData) {
+    clearFilterSelect();
+    var fieldNames = [];
+    for (var i = 0; i < newData.fields.length; i++) {
+        var current = newData.fields[i];
+        if (current.domain) {
+            //replace in all
+            var currentFeature = newData.features[0].attributes;
+            var codeValue = currentFeature[current.name];
+            if (codeValue) {
+                var toReplace = current.domain.codedValues[codeValue - 1].name;
+                currentFeature[current.name] = toReplace;
+            }
+
+        }//domain check
+        fieldNames.push(current.name);
+    }
+    //send to UI
+    clearDataTable();
+    var current = newData.features[0].attributes;
+    for (var namesIndex = 0; namesIndex < fieldNames.length; namesIndex++) {
+        receiveData(fieldNames[namesIndex], current[fieldNames[namesIndex]]);
+    }
+}
+/*
+    sends href of images to UI
+    calls whatever functions we'd need for that
+*/
+function updateAttachments(urls) {//this gets an array of image srcs
+    clearAttachments();
+    for (var i = 0; i < urls.length; i++) {
+        receiveAttachment(urls[i]);
+    }
+}
+/*
+    gets checks and sends layer names to ui
+*/
+function updateLayers() {
+    var regex = "_";
+    var names = getMe.theLayerNames();
+    clearLayerSelect();
+    for (var i = 0; i < names.length; i++) {
+        var value = names[i];
+        var displayName = names[i].replace(regex, ' ');
+        displayName = displayName.toUpperCase();
+        newLayerOption(value, displayName);
+    }
+    //if legend add here
+}
 
 function layerChange() {
     //validate selection
