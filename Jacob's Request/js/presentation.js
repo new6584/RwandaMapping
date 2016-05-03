@@ -68,12 +68,7 @@ function receiveAttachment(urls) {
  * makes image tage and returns it
  */
 function makeAttachment(url) {
-<<<<<<< HEAD
-    var tag = $("<img src='" + url + "' />");
-    console.log(tag);
-=======
     var tag = $("<img src='" + url + "' >");
->>>>>>> origin/Basic-Functionality
     $("#attachment").append(tag);
 }
 

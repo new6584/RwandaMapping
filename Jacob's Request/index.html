@@ -40,36 +40,30 @@
 			</div>
 			<!-- right section of page -->
 			<div id = 'data'>
-				<div id = 'fields'>
-                    <div class="content">
-						<h1>Select Layer For analysis</h1>
-                        <select id="layerSelect" name="layerSelect" onchange="layerChange();">
-                            <option>Business</option>
-                            <option>Another Example</option>
-                        </select>
-                    </div>
-                    <div class="content">
-						<h1>Filter By</h1>
-                        <select id="filterSelect" name="layerSelect">
-                            <option>Market</option>
-                            <option>Another Example</option>
-                        </select>
-                    </div>
-                </div>
 				<div id = 'dataDump'>
+					<div class="block">
+						<label>Select Layer For Analysis</label>
+					  <select id="layerSelect" name="layerSelect" onchange="layerChange();">
+						<option>Business</option>
+						<option>Another Example</option>
+					  </select>
+					</div>
+					<div class="block">
+						<label>Filter Layer By</label>
+					  <select id="filterSelect" name="filterSelect">
+						<option>Market</option>
+						<option>Another Example</option>
+					  </select>   
+					</div>
+					
                     <h1>Analytics</h1>
                     <div id="piechart"></div>
 					<div id="singleOutput">
-                        <table id="dataTable">
-
-                        </table>
+                    <table id="dataTable"></table>
                     </div>
                 </div>
 
-				<div id = 'attachment'>
-                    
-                </div>
-
+				<div id = 'attachment'></div>
 			</div><!-- end data -->
 		</div>
 	</body>
