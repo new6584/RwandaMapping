@@ -66,8 +66,9 @@ function receiveAttachment(urls) {
  * makes image tage and returns it
  */
 function makeAttachment(url) {
-    var tag = $("<img src='" + url + "' >");
-    $("attachment").append(tag);
+    var tag = $("<img src='" + url + "' />");
+    console.log(tag);
+    $("#attachment").append(tag);
 }
 /*
  * gets layer options and unpacks them
