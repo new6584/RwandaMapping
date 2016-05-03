@@ -15,7 +15,9 @@ body{
     background-image: url("../img/backgroundIMG.png");
     background-repeat: repeat;
 }
-
+span.content{
+	display: inline-block;
+}
 .container {
 	width: 85%;
 	min-width: 950px;
@@ -29,15 +31,18 @@ width: 50%;
 }
 #left, #data {
     float: left;
+	
 }
 
 #map {
     height:100%;
 }
-
+#singleOutput{margin-top: 10px;}
 #dataTable{
+	
 	height: 30%;
-	overflow:auto;
+	width: 100%;
+	overflow:scroll;
 }
 
 #data {
@@ -48,17 +53,15 @@ width: 50%;
     opacity: 0.85;
     filter: alpha(opacity=85); /* For IE8 and earlier */		
 }
-#fields{
-	height: 10%;
-	margin: 0 auto;
-	width: 90%;
-}
-#layerSelect{
-    width: 60%;
-    float:left;
-    margin-right:0;
 
-} 
+.block label { 
+	display: inline-block; 
+	text-align: left; 
+	font-size: 1.3em;
+	font-weight: bold;
+	min-width: 230px;
+}
+
 #layerOptions {
     margin:0;
     width: 30%;
@@ -69,7 +72,9 @@ width: 50%;
 #dataDump{
 	margin: 0 auto;
 	width: 90%;
-	height: 50%;
+	height: 60%;
+	overflow: auto;
+	padding-top: 15px;
 }
 #attachment{
 	width: 90%;
