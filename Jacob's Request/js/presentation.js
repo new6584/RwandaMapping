@@ -15,10 +15,12 @@ function receiveData(dataArray) {
     if (!dataArray) {
         return;
     }
+	$('#singleOutput').show();
     clearFilterSelect();
     clearDataTable();
     addTableHeader();    
     for (var i = 0; i < dataArray.length; i++) {
+		
         var name = dataArray[i][0];
         var value = dataArray[i][1];
         addDataElement(name, value);
@@ -26,7 +28,6 @@ function receiveData(dataArray) {
             newFilterOptions(name, value);
         }
     }
-    
 }
 /*
  * adds a single name value pair to the data table
@@ -36,6 +37,7 @@ function addDataElement(name,value) {
     $("#dataTable").append(format);
 }
 function addTableHeader() {
+	
     var header = $("<tr><th>Field Name</th><th>Value</th></tr>");
     $("#dataTable").append(header);
 }
@@ -66,10 +68,15 @@ function receiveAttachment(urls) {
  * makes image tage and returns it
  */
 function makeAttachment(url) {
+<<<<<<< HEAD
     var tag = $("<img src='" + url + "' />");
     console.log(tag);
+=======
+    var tag = $("<img src='" + url + "' >");
+>>>>>>> origin/Basic-Functionality
     $("#attachment").append(tag);
 }
+
 /*
  * gets layer options and unpacks them
  */
