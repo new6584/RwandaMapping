@@ -15,10 +15,10 @@ function receiveData(dataArray) {
     if (!dataArray) {
         return;
     }
-	$('#singleOutput').show();
     clearFilterSelect();
-    clearDataTable();
-    addTableHeader();    
+    //clearDataTable();
+    //addTableHeader(); 
+    var formattedForGoogle = [];
     for (var i = 0; i < dataArray.length; i++) {
 		
         var name = dataArray[i][0];
@@ -27,19 +27,9 @@ function receiveData(dataArray) {
         if ($.isNumeric(value)) {
             newFilterOptions(name, value);
         }
+        formattedForGoogle.push([name,String(value)]);
     }
-}
-/*
- * adds a single name value pair to the data table
- */
-function addDataElement(name,value) {
-    var format = $("<tr><td>" + name + "</td>" + "<td>" + value + "</td></tr>");
-    $("#dataTable").append(format);
-}
-function addTableHeader() {
-	
-    var header = $("<tr><th>Field Name</th><th>Value</th></tr>");
-    $("#dataTable").append(header);
+    drawTable(formattedForGoogle);
 }
 /*
  * replaces filter by selector with options
@@ -102,9 +92,6 @@ function getSelectedPrimaryLayer() {
 
 function clearAttachments() {
     $("#attachment").empty();
-}
-function clearDataTable() {
-    $("#dataTable").empty();
 }
 function clearLayerSelect() {
     $("#layerSelect").empty();

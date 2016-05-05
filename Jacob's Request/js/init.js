@@ -15,7 +15,6 @@ function initializePage() {
     ];
     drawChart(dataTable);
     clearDataFields();
-	$('#singleOutput').hide();
 }
 /**
 *
