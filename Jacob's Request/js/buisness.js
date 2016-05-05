@@ -31,7 +31,7 @@ require([
     getMe.on('newAttachments', function (urls) { updateAttachments(urls); });
     getMe.on('dataError', function (error) { console.log(error); });
     getMe.on('dataFail', function (error) { console.log(error); });//probably dont care when this is called, nonfatal errors like misclicking where there is no data
-
+    
 });//end require
 
 /*

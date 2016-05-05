@@ -2,6 +2,7 @@
 
 */
 function initializePage() {
+    $("#controlLooper").hide();
     updateLayers();
     var dataTable = [
       ["Quarter", "Population "],
