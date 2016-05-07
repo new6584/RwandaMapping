@@ -375,7 +375,7 @@ function (//callbacks for those 'import statments' above
         /* mov into own module -> getByCalc or something after imagine or make this class facade? */
         /* calculate totals for layer analysis by counting layer totals */
 
-        getTotal: function (layerName, thisAttribute) {
+        getTotal: function (layerName, thisAttribute) {//should have this take a layer not name so can decouple from this class
             // thislayer.graphics[i].attributes['']
             var thisLayer = this.myMap.getLayer(this.pTranslateLayerName(layerName));
             var total = 0;

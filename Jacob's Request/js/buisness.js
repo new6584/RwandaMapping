@@ -15,6 +15,7 @@ var domMapID = "map";
 
 var getMe;
 var dataTables = [];
+var selectedPoint = null;
 require([
     "myModules/DataRequests",
     "dojo/on",
@@ -57,6 +58,8 @@ function updateDataSet(newData) {
     }
     //send to UI
     receiveData(fieldNames);
+    //save property
+    selectedPoint = fieldNames;
 }
 /*
     sends href of images to UI
@@ -97,4 +100,26 @@ function layerChange() {
     if (!getMe.setPrimaryLayer(selected)) {
         alert('Selected Layer Does Not Exist');
     }
+}
+
+function filterChange() {
+    var choice = getSelectedFilter();
+    var layerTotal = getMe.getTotal(getMe.primaryLayer, choice);
+    var pointData = getPointData(choice);
+    if (!pointData) {
+        console.log('filter change no att of name: ' + choice);
+        return;
+    }
+    var graphData = [['Total','Selected'],['Total', layerTotal], ['Selected', pointData]];
+    drawChart(graphData, choice);
+}
+
+function getPointData(field) {
+    for (var i = 0; i < selectedPoint.length; i++) {
+        var current = selectedPoint[i][0]
+        if(current == field){
+            return parseInt(selectedPoint[i][1]);
+        }
+    }
+    return null;
 }

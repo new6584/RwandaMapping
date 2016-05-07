@@ -8,14 +8,13 @@ google.charts.load('current', { 'packages': ['corechart', 'table'] });
 //we dont want it to do anything on callback
 
 //piechart
-function drawChart(dataTable) {
-
+function drawChart(dataTable, title) {
+    console.log(dataTable);
     var data = google.visualization.arrayToDataTable(dataTable);
 
     var options = {
-	    title: 'Businesses by Quarter',
-	    colors: ['#800080', '#8c198c', '#993299', '#a64ca6', '#b266b2', '#bf7fbf', '#cc99cc'],
-	    backgroundColor: '#cccccc'
+	    title: title,
+	    backgroundColor: '#999999'
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));

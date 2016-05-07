@@ -51,7 +51,7 @@ function ignoreValue(name) {
  * TODO
  */
 function newFilterOptions(name,value) {
-    $("#filterSelect").append(makeOption(name, value));
+    $("#filterSelect").append(makeOption(name, name));
 }
 /*
  * makes an option tag and returns it
@@ -107,6 +107,12 @@ function newLayerOption(displayName,value) {
  */
 function getSelectedPrimaryLayer() {
     return $("#layerSelect").val();
+}
+/*
+ * returns the currently selected primary layer
+ */
+function getSelectedFilter() {
+    return $("#filterSelect").val();
 }
 
 
