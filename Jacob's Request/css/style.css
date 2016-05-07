@@ -128,11 +128,3 @@ clear: both;
 #p_business{ color: purple;}
 #p_facility{ color: red;}
 #p_roads{ color: green;}
-#map_root .esriPopup {  
-    display: none;  
-    visibility: hidden;  
-}  
-#map .esriPopup {  
-    display: none;  
-    visibility: hidden;  
-}  
