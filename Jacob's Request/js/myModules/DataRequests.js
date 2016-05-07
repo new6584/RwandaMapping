@@ -383,7 +383,7 @@ function (//callbacks for those 'import statments' above
             for (var i = 0; i < points.length; i++) {
                 var pointAttribute = points[i].attributes[thisAttribute];
                 if (pointAttribute) {
-                    total += parseInt(pointAttribute);                    
+                    total += parseFloat(pointAttribute);                    
                 }
             }
             return total;

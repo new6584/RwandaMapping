@@ -118,7 +118,7 @@ function getPointData(field) {
     for (var i = 0; i < selectedPoint.length; i++) {
         var current = selectedPoint[i][0]
         if(current == field){
-            return parseInt(selectedPoint[i][1]);
+            return parseFloat(selectedPoint[i][1]);
         }
     }
     return null;
