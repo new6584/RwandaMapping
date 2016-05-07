@@ -11,7 +11,7 @@
 /*
  * wrapper for when new data is being sent to the UI
  */
-var filterFields = ['GlobalID'];//fields to not display to the user
+var filterFields = ['GlobalID', 'OBJECTID'];//fields to not display to the user
 function receiveData(dataArray) {
     if (!dataArray) {
         return;
@@ -19,6 +19,7 @@ function receiveData(dataArray) {
     clearFilterSelect();
     //clearDataTable();
     //addTableHeader(); 
+    addDefaultFilter();
     var formattedForGoogle = [];
     for (var i = 0; i < dataArray.length; i++) {
         
@@ -59,6 +60,9 @@ function newFilterOptions(name,value) {
 function makeOption(name, value) {
     return $("<option value=" + value + ">" + name + "</option>");
 }
+function addDefaultFilter() {
+    newFilterOptions('Select A Filter','default');
+}
 
 /*
  * wrapper for when new image urls are being sent to the UI 
@@ -87,6 +91,7 @@ function makeAttachment(url) {
  * gets layer options and unpacks them
  */
 function receiveLayerOptions(layerOptions) {
+    clearDataFields();
     if (!layerOptions) {
         return;
     }
@@ -114,7 +119,12 @@ function getSelectedPrimaryLayer() {
 function getSelectedFilter() {
     return $("#filterSelect").val();
 }
-
+function showChart() {
+    $("#piechart").show();
+}
+function showTable() {
+    $("#singleOutput").show();
+}
 
 
 function clearAttachments() {
@@ -130,4 +140,7 @@ function clearFilterSelect() {
 function clearDataFields() {
     clearFilterSelect();
     newFilterOptions("Select A Filter");// a default filter 
+    $("#piechart").hide();
+    $("singleOutput").hide();
+    clearAttachments();
 }

@@ -9,7 +9,6 @@ google.charts.load('current', { 'packages': ['corechart', 'table'] });
 
 //piechart
 function drawChart(dataTable, title) {
-    console.log(dataTable);
     var data = google.visualization.arrayToDataTable(dataTable);
 
     var options = {
@@ -18,7 +17,7 @@ function drawChart(dataTable, title) {
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
+    showChart();
     chart.draw(data, options);
 }
 //data table
@@ -30,7 +29,7 @@ function drawTable(valueArray) {
     var options = {
         width: '100%'
         };
-
+    showTable();
     var table = new google.visualization.Table(document.getElementById('singleOutput'));
     table.draw(tableData, options);
 }
