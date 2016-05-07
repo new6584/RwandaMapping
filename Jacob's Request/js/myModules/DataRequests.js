@@ -370,6 +370,24 @@ function (//callbacks for those 'import statments' above
                 }
             }
             return false;
+        },
+
+        /* mov into own module -> getByCalc or something after imagine or make this class facade? */
+        /* calculate totals for layer analysis by counting layer totals */
+
+        getTotal: function (layerName, thisAttribute) {
+            // thislayer.graphics[i].attributes['']
+            var thisLayer = this.myMap.getLayer(this.pTranslateLayerName(layerName));
+            var total = 0;
+            var points = thisLayer.graphics;
+            for (var i = 0; i < points.length; i++) {
+                var pointAttribute = points[i].attributes[thisAttribute];
+                if (pointAttribute) {
+                    total += parseInt(pointAttribute);                    
+                }
+            }
+            return total;
         }
+
     });
 });

@@ -17,24 +17,3 @@ function initializePage() {
     drawChart(dataTable);
     clearDataFields();
 }
-/**
-*
-*/
-function initTable() {
-	var table = document.createElement('table'), tr, td, row, cell;
-	var width = 10;
-	var height = 25;
-	for (row = 0; row < height; row++) {
-		tr = document.createElement('tr');
-		for (cell = 0; cell < width; cell++) {
-			td = document.createElement('td');
-			tr.appendChild(td);
-			if(row == 0)
-				td.innerHTML = "Title " + (row * width + cell + 1);
-			else 
-				td.innerHTML = "Data  " + ((row-1) * width + cell + 1);
-		}
-		table.appendChild(tr);
-	}
-	document.getElementById('dataTable').appendChild(table);
-}

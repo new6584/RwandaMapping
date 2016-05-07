@@ -69,9 +69,11 @@ function receiveAttachment(urls) {
     for (var i = 0; i < urls.length; i++) {
         makeAttachment(urls[i]);
     }
-    $('.looper').loop;
-    $('.looper').looper('next');
-    $("#controlLooper").show();
+    if (urls[0]) {
+        $('.looper').loop;
+        $('.looper').looper('next');
+        $("#controlLooper").show();
+    }
 }
 /*
  * makes image tage and returns it
@@ -110,6 +112,7 @@ function getSelectedPrimaryLayer() {
 
 
 function clearAttachments() {
+    $("#controlLooper").hide();
     $("#putImagesHere").empty();
 }
 function clearLayerSelect() {

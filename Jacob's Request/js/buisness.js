@@ -8,8 +8,8 @@ functionality:
 
     at the moment it also makes the map, should maybe decouple that?
 */
-
-var esriMapId = "152c333e3fbe4b3999e6d2c1c4faca3c";
+// Kigeme Publishable 3 -- 152c333e3fbe4b3999e6d2c1c4faca3c
+var esriMapId = "ff0e45c7f7cc45f6a796bdee1d4c9eb9"; // fake data set
 var esriTileURI = "https://tiles.arcgis.com/tiles/RQcpPaCpMAXzUI5g/arcgis/rest/services/Kigeme_Tiles_For_Web/MapServer";
 var domMapID = "map";
 
