@@ -1,14 +1,6 @@
 /*
-    Womble presents: map stuff
-    this file creates a data module for an
-    esri map application.
-
-    We use ESRI's API which can be found here: https://developers.arcgis.com/javascript/
-    Should read up on Dojo as well specifically their declare statement (class creator):  http://dojotoolkit.org/documentation/tutorials/1.10/modules/index.html
-    I'm writing this as much to remind me to do it, but there is a... DESIGN DOC somehwere, unless we never actually do that...
-    Again, so I remember, hopefully, the first time a process is introduced ill try and comment in why / what its doing
-    especially in a place where you would need to change something if you are making your own application for BT,
-    which shouldn't be happening in this file besides changing URIs, unless there is a query you want to add i guess
+    @author: Womble
+    @Product of Rochester Inst. Technology GCIS
     
     ****************************************
     ****************************************
